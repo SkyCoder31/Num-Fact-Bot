@@ -76,6 +76,4 @@ client.on('interactionCreate', async interaction =>{
         replyFact(number, 'year', interaction);
      }
 });
-
-
 client.login(process.env.BOT_TOKEN);
