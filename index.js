@@ -10,11 +10,10 @@ const client= new Client({
 
 client.on('ready', ()=>{
     console.log(`${client.user.tag} is ready!`);
-  // const guildID='509975723784536065';
-    
     let commands;
-    if(NODE_ENV=="development"){
-        const guild= client.guilds.cache;
+    if(process.env.NODE_ENV==="development"){
+        const guildID='509975723784536065';
+        const guild= client.guilds.cache.get(guildID);
         commands=guild.commands;
     }
     else{
