@@ -1,4 +1,4 @@
-
+//@ts-check
 import {Client, Interaction} from 'discord.js';
 import dotenv from 'dotenv';
 import replyFact from './Reply.js';
@@ -53,7 +53,7 @@ client.on('ready', ()=>{
             type:'NUMBER'
         }]
     });
-});
+}
 
 client.on('interactionCreate', interaction =>{
     if(!interaction.isCommand())return;
