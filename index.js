@@ -10,15 +10,16 @@ const client= new Client({
 
 client.on('ready', ()=>{
     console.log(`${client.user.tag} is ready!`);
-    const guildID='509975723784536065';
-    const guild= client.guilds.cache.get(guildID);
+  // const guildID='509975723784536065';
+    
     let commands;
-    if(guild){
+    if(NODE_ENV=="development"){
+        const guild= client.guilds.cache;
         commands=guild.commands;
     }
     else{
-        commands=client.application?.commands;
-    }
+        commands=client.application.commands;
+
     commands.create({
         name:'hi',
         description:'Replies with Konichiwa',
@@ -79,3 +80,4 @@ client.on('interactionCreate', async interaction =>{
 
 
 client.login(process.env.BOT_TOKEN);
+client.login(process.env.NODE_ENV);
