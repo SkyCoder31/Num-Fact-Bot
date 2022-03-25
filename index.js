@@ -10,7 +10,7 @@ const client= new Client({
 
 client.on('ready', ()=>{
     console.log(`${client.user.tag} is ready!`);
-    const guildID='816554377853534208';
+    const guildID='509975723784536065';
     const guild= client.guilds.cache.get(guildID);
     let commands;
     if(guild){
