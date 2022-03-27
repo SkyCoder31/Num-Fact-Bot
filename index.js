@@ -19,41 +19,46 @@ client.on('ready', ()=>{
     else{
         commands=client.application.commands;
 
-    commands.create({
-        name:'hi',
-        description:'Replies with Konichiwa',
+        commands.create({
+            name:'hi',
+            description:'Replies with Konichiwa',
+        },
+    );
+        commands.create({
+            name:'fact',
+            description:'Gives a trivia for the entered number',
+            options:[{
+                name:'number',
+                description: 'number for the fact',
+                required: true,
+                type:'NUMBER',
+            },
+        ]
     });
-    commands.create({
-        name:'fact',
-        description:'Gives a trivia for the entered number',
-        options:[{
-            name:'number',
-            description: 'number for the fact',
-            required: true,
-            type:'NUMBER'
-        }]
+        commands.create({
+            name:'math-fact',
+            description:'Gives a mathematical fact for the entered number',
+            options:[{
+                name:'number',
+                description: 'number for the math fact',
+                required: true,
+                type:'NUMBER',
+            },
+        ]
     });
-    commands.create({
-        name:'math-fact',
-        description:'Gives a mathematical fact for the entered number',
-        options:[{
-            name:'number',
-            description: 'number for the math fact',
-            required: true,
-            type:'NUMBER'
-        }]
-    });
-    commands.create({
-        name:'year-fact',
-        description:'Gives any year fact for the entered number',
-        options:[{
-            name:'number',
-            description: 'number for the year fact',
-            required: true,
-            type:'NUMBER'
-        }]
+        commands.create({
+            name:'year-fact',
+            description:'Gives any year fact for the entered number',
+            options:[{
+                name:'number',
+                description: 'number for the year fact',
+                required: true,
+                type:'NUMBER',
+            },
+        ]
     });
 }
+});
 
 client.on('interactionCreate', interaction =>{
     if(!interaction.isCommand())return;
@@ -76,6 +81,4 @@ client.on('interactionCreate', async interaction =>{
         replyFact(number, 'year', interaction);
      }
 });
-
-
 client.login(process.env.BOT_TOKEN);
